@@ -1,0 +1,19 @@
+{
+  "name": "AwesomeProject",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "dependencies": {
+    "native-base": "^0.5.8",
+    "parse": "github:parseplatform/Parse-SDK-JS",
+    "react": "15.3.1",
+    "react-native": "0.33.0",
+    "react-native-auto-updater": "^0.2.5",
+    "react-native-code-push": "^1.14.6-beta",
+    "react-native-file-download": "0.0.10",
+    "react-native-fs": "^2.0.1-rc.2",
+    "react-native-network-info": "^0.2.0"
+  }
+}
