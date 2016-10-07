@@ -3,12 +3,35 @@ import { StyleSheet } from 'react-native';
 export default function getStyles(){
   const primary = '#3399db';
   return StyleSheet.create({
+    bgview: {
+      flex: 1,
+      alignItems: 'stretch',
+      backgroundColor: '#000000',
+      padding: 0,
+      margin: 0
+    },
+
     view: {
       flex: 1,
       alignItems: 'stretch',
       backgroundColor: '#F4F4F4',
+      padding: 0,
+      margin: 0
+    },
+
+    viewrow: {
+      flex: 0,
+      flexDirection: 'row',
+      backgroundColor: '#F4F4F4',
       padding: 15
     },
+
+    viewContainer: {
+      flex: 1,
+      marginLeft: 15,
+      marginRight: 15,
+    },
+    
     input: {
       height: 45,
       borderColor: 'gray',
@@ -18,14 +41,25 @@ export default function getStyles(){
       lineHeight: 28
     },
     centerView: {
+      paddingLeft: 15,
+      paddingTop: 10,
       flex: 1,
       justifyContent:'center'
     },
     title: {
-      fontSize: 20,
+      fontSize: 26,
       textAlign: 'center',
+      backgroundColor: primary,
+      color: 'white',
+      marginTop: 20
+    },
+    subtitle: {
+      flex: 1,
+      fontSize: 13,
       color: primary,
-      marginTop: 0
+      marginTop: 10,
+      paddingLeft: 35,
+      paddingTop: 30
     },
     statusText: {
       textAlign: 'center',
@@ -50,8 +84,8 @@ export default function getStyles(){
       alignItems: 'stretch'
     },
     image: {
-      width: 150,
-      height: 100,
+      width: 40,
+      height: 50,
       marginTop: 20
     }
   });

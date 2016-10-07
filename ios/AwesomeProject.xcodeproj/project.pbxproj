@@ -25,6 +25,7 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		9D1BC4111D94515200385268 /* libRNFileDownload.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D61BDCC1D94377D00BB6922 /* libRNFileDownload.a */; };
 		9D1BC4121D94515500385268 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D61BDD41D944E8800BB6922 /* libRNFS.a */; };
+		9D66B4361DA6965E00A9782D /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D66B4351DA6965E00A9782D /* ExternalAccessory.framework */; };
 		9DEC96CF1D9EAFC3007EEA83 /* libRNNetworkInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DEC96CE1D9EAF7F007EEA83 /* libRNNetworkInfo.a */; };
 		9DEC96D61D9EB6EE007EEA83 /* libReact Native Open Settings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DEC96D51D9EB6DD007EEA83 /* libReact Native Open Settings.a */; };
 		9DEC96DD1D9EC121007EEA83 /* libReactNativeAutoUpdater.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DEC96DC1D9EC11C007EEA83 /* libReactNativeAutoUpdater.a */; };
@@ -177,6 +178,8 @@
 		9D1BC3FF1D9450C800385268 /* RNFileDownload.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFileDownload.xcodeproj; path = "../node_modules/react-native-file-download/RNFileDownload.xcodeproj"; sourceTree = "<group>"; };
 		9D61BDBD1D94377D00BB6922 /* RNFileDownload.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFileDownload.xcodeproj; path = "../node_modules/react-native-file-download/RNFileDownload.xcodeproj"; sourceTree = "<group>"; };
 		9D61BDCF1D944E8800BB6922 /* RNFS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFS.xcodeproj; path = "../node_modules/react-native-fs/RNFS.xcodeproj"; sourceTree = "<group>"; };
+		9D66B4351DA6965E00A9782D /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		9D66B4371DA6965E00A9782D /* AwesomeProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = AwesomeProject.entitlements; path = AwesomeProject/AwesomeProject.entitlements; sourceTree = "<group>"; };
 		9DEC96BC1D9EAF7F007EEA83 /* RNNetworkInfo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNNetworkInfo.xcodeproj; path = "../node_modules/react-native-network-info/ios/RNNetworkInfo.xcodeproj"; sourceTree = "<group>"; };
 		9DEC96D01D9EB6DD007EEA83 /* React Native Open Settings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "React Native Open Settings.xcodeproj"; path = "../node_modules/react-native-open-settings/React Native Open Settings.xcodeproj"; sourceTree = "<group>"; };
 		9DEC96D71D9EC11C007EEA83 /* ReactNativeAutoUpdater.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeAutoUpdater.xcodeproj; path = "../node_modules/react-native-auto-updater/ios/ReactNativeAutoUpdater.xcodeproj"; sourceTree = "<group>"; };
@@ -201,6 +204,7 @@
 				9D1BC4121D94515500385268 /* libRNFS.a in Frameworks */,
 				9D1BC4111D94515200385268 /* libRNFileDownload.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
+				9D66B4361DA6965E00A9782D /* ExternalAccessory.framework in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
@@ -292,6 +296,7 @@
 		13B07FAE1A68108700A75B9A /* AwesomeProject */ = {
 			isa = PBXGroup;
 			children = (
+				9D66B4371DA6965E00A9782D /* AwesomeProject.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -357,6 +362,7 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* AwesomeProjectTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
+				9D66B4341DA6965E00A9782D /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -393,6 +399,14 @@
 				9D61BDD41D944E8800BB6922 /* libRNFS.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9D66B4341DA6965E00A9782D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9D66B4351DA6965E00A9782D /* ExternalAccessory.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		9DEC96BD1D9EAF7F007EEA83 /* Products */ = {
@@ -474,6 +488,14 @@
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = BHC5587M92;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.WAC = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -787,6 +809,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AwesomeProject/AwesomeProject.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEAD_CODE_STRIPPING = NO;
@@ -816,6 +839,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AwesomeProject/AwesomeProject.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = BHC5587M92;
