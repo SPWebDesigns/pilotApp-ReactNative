@@ -109,18 +109,27 @@ export function fetchFile(filename){
 }
 
 export function uploadFile(file){
-  console.log(file);
-  
-  return fetch(API + filename, {
-    method: 'POST'
+  var serializeJSON = function(file) {
+    return Object.keys(file).map(function (keyName) {
+      return encodeURIComponent(keyName) + '=' + encodeURIComponent(file[keyName])
+    }).join('&');
+  }
+
+  return fetch('http://danielgeslin.com/generic-file-uploader/upload.php', {
+    method: 'POST',
+    body: serializeJSON({
+      data: file
+    })
   })
   .then(function(response) {
+    console.log(response);
     return response.json();
   })
   .then((responseJson) => {
     return responseJson;
   })
   .catch((error) => {
+    console.log(response);
     console.error(error);
   });
 }

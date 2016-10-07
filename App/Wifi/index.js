@@ -93,9 +93,18 @@ export default class App extends Component {
   }
 
   uploadFile(){
+    let file = null;
+    // uploadFile(file)
+    //   .then((data)=>{
+    //     console.log(data);
+    //     this.setState(Object.assign({}, this.state, {uploading: false}));
+    //   });
+      
+    // return false;
+
     var path = RNFS.DocumentDirectoryPath + '/' + this.state.filename;
     this.setState(Object.assign({}, this.state, {uploading: true}));
-    let file = null; 
+     
     RNFS.readFile(path).then(function(data){
       file = data; 
       console.log(file);
@@ -118,7 +127,8 @@ export default class App extends Component {
     }
 
     return (
-      <View style={styles.bgview}>
+      <ScrollView contentContainerStyle={styles.bgview}>
+        <View style={styles.view}>
           <Text style={styles.title}>PROYECT NAME</Text>
           <View style={styles.viewrow}>
             <Image
@@ -161,8 +171,8 @@ export default class App extends Component {
           </View>
         </View>
         
-
-      </View>
+        </View>
+      </ScrollView>
     );
   }
 }
