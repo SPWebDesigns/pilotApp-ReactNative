@@ -93,16 +93,34 @@ export function fetchFiles(){
 }
 
 export function fetchFile(filename){
+  console.log(API + filename);
   return fetch(API + filename, {
     method: 'GET'
   })
   .then(function(response) {
-    return response.blob();
+    return response.text();
   })
   .then((responseJson) => {
     return responseJson;
   })
   .catch((error) => {
     console.error(error);
-  });;
+  });
+}
+
+export function uploadFile(file){
+  console.log(file);
+  
+  return fetch(API + filename, {
+    method: 'POST'
+  })
+  .then(function(response) {
+    return response.json();
+  })
+  .then((responseJson) => {
+    return responseJson;
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 }

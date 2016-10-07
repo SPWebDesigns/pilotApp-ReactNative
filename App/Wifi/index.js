@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
 import { Navigator, View, ListView, Text, TouchableHighlight, Image, ScrollView } from 'react-native';
 import getStyles from '../styles';
-import { fetchFiles, fetchFile, checkFlashAirConnection, getSSID } from '../services/AsyncService';
+import { fetchFiles, fetchFile, getSSID, uploadFile } from '../services/AsyncService';
 import parseSdResults from './../services/sd-card-parser';
 
 import NetworkInfo from 'react-native-network-info';
 import RNOpenSettings from 'react-native-open-settings';
+import RNFS from 'react-native-fs';
 
 const styles = getStyles();
+let sdParserInstance = new parseSdResults;
 
 export default class App extends Component {
   constructor(props){
     super(props);
-    this.state = {status: '', files: [], 'flashAirStatus': 'Not Conected', 'flashairSSID': null};
-    //this.fetchFiles();
-    console.log(RNOpenSettings);
+    this.state = {
+      status: '',
+      files: [],
+      'flashAirStatus': 'Not Conected',
+      'flashairSSID': null,
+      'uploading': false,
+      'filename': null
+    };
 
     // Get SSID
     NetworkInfo.getSSID(ssid => {
@@ -40,18 +47,10 @@ export default class App extends Component {
     });
   }
   
-  checkFlashAirConnection(){
-    checkFlashAirConnection().then((data)=>{
-      console.error(data);
-      this.setState(Object.assign({}, this.state, {flashairPaired: data}));
-    });
-  }
-  
   fetchFiles(){
     fetchFiles().then((data)=>{
-      let files = data.payload;
+      let files = data;
       //console.log(files);
-      let sdParserInstance = new parseSdResults;
       sdParserInstance.setInput(files);
       sdParserInstance.parse();
       files = sdParserInstance.getFileArray();
@@ -60,14 +59,58 @@ export default class App extends Component {
     });
   }
 
+  writeFile(data, filename){
+    // create a path you want to write to
+    var path = RNFS.DocumentDirectoryPath + '/' + filename;
+    // write the file
+    RNFS.writeFile(path, data, 'utf8')
+      .then((success) => {
+        console.log('FILE WRITTEN!');
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }
+
+  fetchFile(){
+    let files = sdParserInstance.getFileArray();
+    console.log(files[files.length - 1]);
+    let fileName = files[files.length - 1].filename;
+    this.setState(Object.assign({}, this.state, {filename: fileName}));
+
+    fetchFile(fileName).then((data)=>{
+      let file = data;
+      //console.log(files);
+      console.log(file);
+
+      this.writeFile(file, fileName);
+      //this.setState(Object.assign({}, this.state, {files}));
+    });
+  }
+
   openSettings(){
     RNOpenSettings.openSettings();
-  }  
+  }
+
+  uploadFile(){
+    var path = RNFS.DocumentDirectoryPath + '/' + this.state.filename;
+    this.setState(Object.assign({}, this.state, {uploading: true}));
+    let file = null; 
+    RNFS.readFile(path).then(function(data){
+      file = data; 
+      console.log(file);
+      uploadFile(file)
+      .then((data)=>{
+        console.log(data);
+        this.setState(Object.assign({}, this.state, {uploading: false}));
+      });   
+    });    
+  }
 
   render() {
     let iconStatus = this.state.status !== 'Not Conected' ? require('./../imgs/wifi-icon-15-on.png') : require('./../imgs/wifi-icon-15.png');
-    let downloadFilesBtn = <TouchableHighlight onPress={this.openSettings.bind(this)}> 
-      <Text style={styles.login}>Download new files</Text> 
+    let downloadFilesBtn = <TouchableHighlight onPress={this.fetchFile.bind(this)}> 
+      <Text style={styles.login}>Download file</Text> 
     </TouchableHighlight>;
 
     if(false){
@@ -102,7 +145,7 @@ export default class App extends Component {
                 <Text style={styles.login}>Open Wifi Settings</Text>
               </TouchableHighlight>
               {downloadFilesBtn}
-              
+
             </View>
           </View>
         
@@ -112,7 +155,7 @@ export default class App extends Component {
             source={require('./../imgs/upload-icon-3.png')}
           />
           <View style={styles.centerView}>
-            <TouchableHighlight onPress={this.openSettings.bind(this)}>
+            <TouchableHighlight onPress={this.uploadFile.bind(this)}>
               <Text style={styles.login}>Upload Files</Text>
             </TouchableHighlight>
           </View>
