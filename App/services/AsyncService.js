@@ -20,40 +20,6 @@ export function checkFlashAirConnection (data) {
   });
 };
 
-
-// var body = null; //earlier i used var body =' '; //blank value --null & blank makes a different
-// if (method === 'post' || method === 'POST' || method === 'put' || method === 'PUT') {
-//   body = serializedData;
-//   headers = {
-//     'Accept': 'application/json',
-//     'Authorization': 'Bearer ' + this.authToken,
-//     'Content-Type': 'application/x-www-form-urlencoded',
-//   };
-// } else {
-//   url = url + '?' + serializedData;
-//   headers = {
-//     'Accept': 'application/json',
-//     'Authorization': 'Bearer ' + this.authToken,
-//   };
-// }
-
-// return fetch(url,{
-//   method: method,
-//   headers: headers,
-//   body: body,
-// })
-
-// fetch('http://facebook.github.io/react-native/movies.json')
-//   .then((response) => response.json())
-//   .then((responseJson) => {
-//     //works fine in simulator
-//     this.setState({title: responseJson.title})
-//   })
-//   .catch((error) => {
-//     //hits this everytime on the actual device
-//     console.error(error);
-//   });
-
 export function getSSID(){
   return fetch(API + getSSIDParams, {
     method: 'GET',
@@ -67,11 +33,10 @@ export function getSSID(){
       return response.text();
     })
     .then((responseJson) => {
-      console.log(responseJson);
       return responseJson;
     })
     .catch((error) => {
-      console.error(error);
+      //console.error(error);
   });
 }
 
@@ -88,7 +53,7 @@ export function fetchFiles(){
     return responseJson;
   })
   .catch((error) => {
-    console.error(error);
+    //console.error(error);
   });
 }
 
@@ -104,7 +69,7 @@ export function fetchFile(filename){
     return responseJson;
   })
   .catch((error) => {
-    console.error(error);
+    //console.error(error);
   });
 }
 
@@ -130,6 +95,6 @@ export function uploadFile(file){
   })
   .catch((error) => {
     console.log(response);
-    console.error(error);
+    //console.error(error);
   });
 }

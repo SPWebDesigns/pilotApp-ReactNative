@@ -30,7 +30,6 @@ export default class App extends Component {
 
     // Get Local IP
     NetworkInfo.getIPAddress(ip => {
-      console.log(ip);
       if(ip != 'error'){
         this.setState(Object.assign({}, this.state, {status: 'Conected ' + ip}));
       } else {
@@ -44,6 +43,11 @@ export default class App extends Component {
     getSSID().then((data)=>{
       console.log(data);
       this.setState(Object.assign({}, this.state, {flashairSSID: data}));
+      if(data){
+        this.setState(Object.assign({}, this.state, {flashAirStatus: 'Conected'}));
+      } else {
+        this.setState(Object.assign({}, this.state, {flashAirStatus: 'Not Conected'}));
+      }
     });
   }
   
@@ -94,23 +98,13 @@ export default class App extends Component {
 
   uploadFile(){
     let file = null;
-    // uploadFile(file)
-    //   .then((data)=>{
-    //     console.log(data);
-    //     this.setState(Object.assign({}, this.state, {uploading: false}));
-    //   });
-      
-    // return false;
-
-    var path = RNFS.DocumentDirectoryPath + '/' + this.state.filename;
+    let path = RNFS.DocumentDirectoryPath + '/' + this.state.filename;
     this.setState(Object.assign({}, this.state, {uploading: true}));
      
     RNFS.readFile(path).then(function(data){
       file = data; 
-      console.log(file);
       uploadFile(file)
       .then((data)=>{
-        console.log(data);
         this.setState(Object.assign({}, this.state, {uploading: false}));
       });   
     });    
@@ -129,7 +123,7 @@ export default class App extends Component {
     return (
       <ScrollView contentContainerStyle={styles.bgview}>
         <View style={styles.view}>
-          <Text style={styles.title}>PROYECT NAME</Text>
+          <Text style={styles.title}>AEYRIUM</Text>
           <View style={styles.viewrow}>
             <Image
               style={styles.image}
