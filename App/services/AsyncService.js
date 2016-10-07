@@ -96,7 +96,9 @@ export function fetchFile(filename){
   return fetch(API + filename, {
     method: 'GET'
   })
-  //.then((response) => response.json())
+  .then(function(response) {
+    return response.blob();
+  })
   .then((responseJson) => {
     return responseJson;
   })

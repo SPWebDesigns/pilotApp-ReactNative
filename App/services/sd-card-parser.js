@@ -1,4 +1,4 @@
-class parseSdResults {
+export default class parseSdResults {
   constructor(){
     this.input = '';
     this.inputArray = [];

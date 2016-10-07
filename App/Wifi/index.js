@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Navigator, View, ListView, Text, TouchableHighlight, Image, ScrollView } from 'react-native';
 import getStyles from '../styles';
 import { fetchFiles, fetchFile, checkFlashAirConnection, getSSID } from '../services/AsyncService';
-import sdParser from './../services/sd-card-parser';
+import parseSdResults from './../services/sd-card-parser';
 
 import NetworkInfo from 'react-native-network-info';
 import RNOpenSettings from 'react-native-open-settings';
@@ -51,8 +51,11 @@ export default class App extends Component {
     fetchFiles().then((data)=>{
       let files = data.payload;
       //console.log(files);
-      sdParser.setInput(files);
-      files = sdParser.getInput(files);
+      let sdParserInstance = new parseSdResults;
+      sdParserInstance.setInput(files);
+      sdParserInstance.parse();
+      files = sdParserInstance.getFileArray();
+      console.log(files);
       this.setState(Object.assign({}, this.state, {files}));
     });
   }
