@@ -112,7 +112,6 @@ export default class App extends Component {
               source={iconStatus}
             />
             <View style={styles.view}>
-              <Text style={styles.subtitle}>Status: {this.state.status}</Text>
               <Text style={styles.subtitle}>Flashair: {this.state.flashAirStatus}</Text>
             </View>
           </View>

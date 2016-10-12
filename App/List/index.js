@@ -74,12 +74,15 @@ export default class App extends Component {
     const dataSource = ds.cloneWithRows(this.state.files);
 
     return (
-      <View>
+      <View style={styles.view}>
         <View>
           <Text style={styles.title}>AEYRIUM</Text>
         </View>
         <ScrollView contentContainerStyle={styles.bgview}>
           <View style={styles.view}>
+            <TouchableHighlight onPress={this.goHome.bind(this)}>
+              <Text style={styles.login}> Back</Text>
+            </TouchableHighlight>
             <ListView
               enableEmptySections={true}
               dataSource={dataSource}
@@ -89,9 +92,6 @@ export default class App extends Component {
             />
           </View>
         </ScrollView>
-        <TouchableHighlight onPress={this.goHome.bind(this)}>
-          <Text style={styles.login}>Back to Home</Text>
-        </TouchableHighlight>
       </View>
     );
   }
