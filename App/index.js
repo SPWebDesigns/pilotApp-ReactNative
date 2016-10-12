@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Navigator } from 'react-native';
 import Wifi from './Wifi';
+import List from './List';
 
 export default class App extends Component {
   constructor(props){
@@ -12,6 +13,8 @@ export default class App extends Component {
     switch (route.id) {
       case 'wifi':
         return (<Wifi navigator={navigator} />);
+      case 'list':
+        return (<List navigator={navigator} />);
     }
   }
 

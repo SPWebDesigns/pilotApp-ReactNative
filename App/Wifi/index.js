@@ -96,19 +96,22 @@ export default class App extends Component {
     RNOpenSettings.openSettings();
   }
 
-  uploadFile(){
-    let file = null;
-    let path = RNFS.DocumentDirectoryPath + '/' + this.state.filename;
-    this.setState(Object.assign({}, this.state, {uploading: true}));
-     
-    RNFS.readFile(path).then(function(data){
-      file = data; 
-      uploadFile(file)
-      .then((data)=>{
-        this.setState(Object.assign({}, this.state, {uploading: false}));
-      });   
-    });    
+  goToFileList(){
+    this.props.navigator.push({id: 'list'});
   }
+  // uploadFile(){
+  //   let file = null;
+  //   let path = RNFS.DocumentDirectoryPath + '/' + this.state.filename;
+  //   this.setState(Object.assign({}, this.state, {uploading: true}));
+     
+  //   RNFS.readFile(path).then(function(data){
+  //     file = data; 
+  //     uploadFile(file)
+  //     .then((data)=>{
+  //       this.setState(Object.assign({}, this.state, {uploading: false}));
+  //     });   
+  //   });    
+  // }
 
   render() {
     let iconStatus = this.state.status !== 'Not Conected' ? require('./../imgs/wifi-icon-15-on.png') : require('./../imgs/wifi-icon-15.png');
@@ -159,7 +162,7 @@ export default class App extends Component {
             source={require('./../imgs/upload-icon-3.png')}
           />
           <View style={styles.centerView}>
-            <TouchableHighlight onPress={this.uploadFile.bind(this)}>
+            <TouchableHighlight onPress={this.goToFileList.bind(this)}>
               <Text style={styles.login}>Upload Files</Text>
             </TouchableHighlight>
           </View>
