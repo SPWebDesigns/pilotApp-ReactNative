@@ -50,18 +50,6 @@ export default class App extends Component {
       }
     });
   }
-  
-  fetchFiles(){
-    fetchFiles().then((data)=>{
-      let files = data;
-      //console.log(files);
-      sdParserInstance.setInput(files);
-      sdParserInstance.parse();
-      files = sdParserInstance.getFileArray();
-      console.log(files);
-      this.setState(Object.assign({}, this.state, {files}));
-    });
-  }
 
   writeFile(data, filename){
     // create a path you want to write to
@@ -76,28 +64,16 @@ export default class App extends Component {
       });
   }
 
-  fetchFile(){
-    let files = sdParserInstance.getFileArray();
-    console.log(files[files.length - 1]);
-    let fileName = files[files.length - 1].filename;
-    this.setState(Object.assign({}, this.state, {filename: fileName}));
-
-    fetchFile(fileName).then((data)=>{
-      let file = data;
-      //console.log(files);
-      console.log(file);
-
-      this.writeFile(file, fileName);
-      //this.setState(Object.assign({}, this.state, {files}));
-    });
-  }
-
   openSettings(){
     RNOpenSettings.openSettings();
   }
 
   goToFileList(){
     this.props.navigator.push({id: 'list'});
+  }
+
+  goToSdFiles(){
+    this.props.navigator.push({id: 'sdlist'});
   }
   // uploadFile(){
   //   let file = null;
@@ -114,12 +90,15 @@ export default class App extends Component {
   // }
 
   render() {
-    let iconStatus = this.state.status !== 'Not Conected' ? require('./../imgs/wifi-icon-15-on.png') : require('./../imgs/wifi-icon-15.png');
-    let downloadFilesBtn = <TouchableHighlight onPress={this.fetchFile.bind(this)}> 
-      <Text style={styles.login}>Download file</Text> 
+    let iconStatus = this.state.flashAirStatus !== 'Not Conected' ? require('./../imgs/wifi-icon-15-on.png') : require('./../imgs/wifi-icon-15.png');
+    // let downloadFilesBtn = <TouchableHighlight onPress={this.fetchFile.bind(this)}> 
+    //   <Text style={styles.login}>Download file</Text> 
+    // </TouchableHighlight>;
+    let downloadFilesBtn = <TouchableHighlight onPress={this.goToSdFiles.bind(this)}> 
+      <Text style={styles.login}>Download Sd Files</Text> 
     </TouchableHighlight>;
 
-    if(false){
+    if(this.state.flashAirStatus == 'Not Conected'){
       downloadFilesBtn = null;
     }
 
@@ -142,10 +121,6 @@ export default class App extends Component {
 
               <TouchableHighlight onPress={this.getSSID.bind(this)}>
                 <Text style={styles.login}>Check FlashAir SD</Text>
-              </TouchableHighlight>
-
-              <TouchableHighlight onPress={this.fetchFiles.bind(this)}>
-                <Text style={styles.login}>Check SD Files</Text>
               </TouchableHighlight>
 
               <TouchableHighlight onPress={this.openSettings.bind(this)}>

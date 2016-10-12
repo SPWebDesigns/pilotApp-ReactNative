@@ -14,7 +14,9 @@ export default class App extends Component {
       case 'wifi':
         return (<Wifi navigator={navigator} />);
       case 'list':
-        return (<List navigator={navigator} />);
+        return (<List navigator={navigator} type={'local'}/>);
+      case 'sdlist':
+        return (<List navigator={navigator} type={'sd'}/>);
     }
   }
 

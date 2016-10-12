@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, Image } from 'react-native';
+import { uploadFile } from '../services/AsyncService';
 import getStyles from '../styles';
 import RNFS from 'react-native-fs';
 
@@ -8,6 +9,9 @@ const styles = getStyles();
 export default class Tile extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      'uploading': false
+    };
   }
 
   uploadFile(){
@@ -39,7 +43,7 @@ export default class Tile extends Component {
           />
           <View style={styles.centerView}>
             <TouchableHighlight onPress={this.uploadFile.bind(this)}>
-              <Text style={styles.login}>Upload {data}</Text>
+              <Text style={styles.login}>Upload {data.name}</Text>
             </TouchableHighlight>
           </View>
         </View>
