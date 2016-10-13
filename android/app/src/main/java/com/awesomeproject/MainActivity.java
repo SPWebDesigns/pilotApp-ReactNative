@@ -10,6 +10,8 @@ import com.facebook.react.shell.MainReactPackage;
 import com.pusherman.networkinfo.RNNetworkInfoPackage;
 import android.os.Bundle;
 
+import com.rnfs.RNFSPackage;
+
 public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
 
     private ReactRootView mReactRootView;
@@ -26,11 +28,12 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
                 .setJSMainModuleName("index.android")
                 .addPackage(new MainReactPackage())
                 .addPackage(new RNNetworkInfoPackage())
-                //.setUseDeveloperSupport(BuildConfig.DEBUG)
+                .addPackage(new RNFSPackage())
+                .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
 
-        mReactRootView.startReactApplication(mReactInstanceManager, "pilotapp", null);
+        mReactRootView.startReactApplication(mReactInstanceManager, "awesomeproject", null);
 
         setContentView(mReactRootView);
     }

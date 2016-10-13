@@ -15,7 +15,7 @@ import {
 
 import App from './App';
 
-class AwesomeProject extends Component {
+class awesomeproject extends Component {
   render() {
     return (
       <Navigator
@@ -81,4 +81,4 @@ const headerStyles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
+AppRegistry.registerComponent('awesomeproject', () => awesomeproject);
