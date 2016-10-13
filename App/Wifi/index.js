@@ -5,7 +5,7 @@ import { fetchFiles, fetchFile, getSSID, uploadFile } from '../services/AsyncSer
 import parseSdResults from './../services/sd-card-parser';
 
 import NetworkInfo from 'react-native-network-info';
-import RNOpenSettings from 'react-native-open-settings';
+// import RNOpenSettings from 'react-native-open-settings';
 import RNFS from 'react-native-fs';
 
 const styles = getStyles();
@@ -65,7 +65,7 @@ export default class App extends Component {
   }
 
   openSettings(){
-    RNOpenSettings.openSettings();
+    //RNOpenSettings.openSettings();
   }
 
   goToFileList(){

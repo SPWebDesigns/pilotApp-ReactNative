@@ -9,29 +9,60 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Navigator
 } from 'react-native';
+
+import App from './App';
 
 class AwesomeProject extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+      <Navigator
+        initialRoute={{ title: 'Awesome Scene', index: 0 }}
+        renderScene={this.renderScene}
+        style={{padding: 0}}
+      />
     );
+  }
+
+  renderScene() {
+    return (
+      <App/>
+    )
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
+
+class Header extends Component {
+  render(){
+    return (
+      <Text style={styles.welcome}>
+          Header
+        </Text>
+    )
+  }
+}
+
+const headerStyles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',

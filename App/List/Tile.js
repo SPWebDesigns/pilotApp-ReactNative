@@ -30,6 +30,15 @@ export default class Tile extends Component {
 
   render() {
     const data = this.props.data;
+
+    let deleteBtn = <TouchableHighlight onPress={this.deleteFile.bind(this)}>
+      <Text style={styles.login}>Delete File</Text>
+    </TouchableHighlight>;
+
+    if(this.props.type == 'sd'){
+      deleteBtn = null;
+    }
+
     return (
       // <View>
       //   <TouchableHighlight>
@@ -45,6 +54,13 @@ export default class Tile extends Component {
             <TouchableHighlight onPress={this.uploadFile.bind(this)}>
               <Text style={styles.login}>Upload {data.name}</Text>
             </TouchableHighlight>
+
+            <TouchableHighlight onPress={this.uploadFile.bind(this)}>
+              <Text style={styles.login}>Delete File</Text>
+            </TouchableHighlight>
+            
+            {deleteBtn}
+            
           </View>
         </View>
     );
