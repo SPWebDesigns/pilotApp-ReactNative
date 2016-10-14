@@ -81,7 +81,7 @@ export default class App extends Component {
     //   <Text style={styles.login}>Download file</Text> 
     // </TouchableHighlight>;
     let downloadFilesBtn = <TouchableHighlight onPress={this.goToSdFiles.bind(this)}> 
-      <Text style={styles.login}>Download Sd Files</Text> 
+      <Text style={styles.btnHome}>Download Sd Files</Text> 
     </TouchableHighlight>;
 
     if(this.state.flashAirStatus == 'Not Conected'){
@@ -93,19 +93,20 @@ export default class App extends Component {
         <View style={styles.view}>
           <Text style={styles.title}>AEYRIUM</Text>
           <View style={styles.viewrow}>
-            <Image
-              style={styles.image}
-              source={iconStatus}
-            />
+            <View style={styles.imageContainerWhite}>
+              <Image
+                  style={styles.imageWifi}
+                  source={iconStatus}
+                />
+            </View>
             <View style={styles.view}>
-              <Text style={styles.subtitle}>Flashair: {this.state.flashAirStatus}</Text>
+              <Text style={styles.message}>Flashair: {this.state.flashAirStatus}</Text>
             </View>
           </View>
           <View style={styles.view}>
             <View style={styles.viewContainer}>
-
               <TouchableHighlight onPress={this.getSSID.bind(this)}>
-                <Text style={styles.login}>Refresh Wifi Connection</Text>
+                <Text style={styles.btnHome}>Refresh Wifi Connection</Text>
               </TouchableHighlight>
 
               {downloadFilesBtn}
@@ -114,10 +115,12 @@ export default class App extends Component {
           </View>
         
         <View style={styles.viewrow}>
-          <Image
-            style={styles.image}
-            source={require('./../imgs/upload-icon-3.png')}
-          />
+          <View style={styles.imageContainer}>
+            <Image
+              style={styles.imageCloud}
+              source={require('./../imgs/upload-icon-3.png')}
+            />
+          </View>
           <View style={styles.centerView}>
             <TouchableHighlight onPress={this.goToFileList.bind(this)}>
               <Text style={styles.login}>Upload Files</Text>

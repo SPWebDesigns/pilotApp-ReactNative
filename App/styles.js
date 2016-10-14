@@ -26,6 +26,13 @@ export default function getStyles(){
       padding: 15
     },
 
+    viewrowWhite:{
+      flex: 0,
+      flexDirection: 'row',
+      backgroundColor: 'white',
+      padding: 15
+    },
+
     viewContainer: {
       flex: 1,
       marginLeft: 15,
@@ -73,6 +80,15 @@ export default function getStyles(){
       textAlign: 'center',
       marginTop: 15
     },
+    btnHome: {
+      backgroundColor: primary,
+      color: '#FFF',
+      padding: 15,
+      paddingTop: 30,
+      paddingBottom: 30,
+      textAlign: 'center',
+      marginTop: 15
+    },
     message: {
       backgroundColor: 'white',
       color: primary,
@@ -88,13 +104,25 @@ export default function getStyles(){
       fontSize: 20
     },
     imageContainer: {
-      flex: 1,
-      alignItems: 'stretch'
+      alignItems: 'stretch',
+      paddingTop: 20
     },
-    image: {
-      width: 40,
+    imageContainerWhite: {
+      alignItems: 'stretch',
+      paddingTop: 20,
+    },
+    imageWifi: {
+      width: 60,
+      height: 54,
+      padding: 0,
+      margin: 0,
+      backgroundColor: 'white',
+    },
+    imageCloud: {
+      width: 77,
       height: 50,
-      marginTop: 20
+      padding: 0,
+      margin: 0,
     }
   });
 }
