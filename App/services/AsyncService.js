@@ -50,7 +50,6 @@ export function fetchFiles(){
       return response.text();
     })
   .then((responseJson) => {
-    console.log(responseJson);
     return responseJson;
   })
   .catch((error) => {
@@ -75,7 +74,6 @@ export function fetchFile(filename){
 }
 
 export function uploadFile(file, name){
-  console.log(file);
 
   var serializeJSON = function(file) {
     return Object.keys(file).map(function (keyName) {

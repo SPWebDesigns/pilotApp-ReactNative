@@ -32,7 +32,6 @@ export default class parseSdResults {
         obj[key] = value;
       }
       this.fileArray.push({name: obj});
-      console.log(this.fileArray);
       marker++;
     }
     return this.fileArray;
@@ -50,21 +49,3 @@ export default class parseSdResults {
     return this.fileArray;
   }
 }
-
-
-// var a = `WLANSD_FILELIST
-// ,~1.TRA,4096,34,18740,22561
-// ,SD_WLAN,0,18,16602,18432
-// ,TRASHE~1,0,18,18740,22561
-// ,SPOTLI~1,0,18,18740,22561
-// ,_KPAO_~1.XML,4096,34,18757,28241
-// ,_KPAO_~2.XML,4096,34,18757,28248
-// ,FLASHA~1.COM,0,16,18757,28773
-// ,_FLASH~1.COM,4096,34,18757,28774
-// ,KPAO_K2.XML,12464,32,18757,28236
-// ,KPAO_K3.XML,12464,32,18757,28245`;
-
-// var obj = new parseSdResults();
-// obj.setInput(a);
-// obj.parse();
-// console.log(obj.getFileArray());

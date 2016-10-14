@@ -49,11 +49,6 @@ export default class Tile extends Component {
     }
 
     return (
-      // <View>
-      //   <TouchableHighlight>
-      //     <Text style={styles.tileTitle}>{data}</Text>
-      //   </TouchableHighlight>
-      // </View>
       <View style={styles.viewrow}>
           <Image
             style={styles.image}
