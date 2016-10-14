@@ -5,7 +5,6 @@ import { fetchFiles, fetchFile, getSSID, uploadFile } from '../services/AsyncSer
 import parseSdResults from './../services/sd-card-parser';
 
 import NetworkInfo from 'react-native-network-info';
-// import RNOpenSettings from 'react-native-open-settings';
 import RNFS from 'react-native-fs';
 
 const styles = getStyles();
@@ -60,30 +59,21 @@ export default class App extends Component {
     });
   }
 
-  openSettings(){
-    //RNOpenSettings.openSettings();
-  }
-
   goToFileList(){
-    this.props.navigator.push({id: 'list'});
+    if(this.state.flashAirStatus != "Conected"){
+      this.props.navigator.push({id: 'list'});
+    } else {
+      this.props.navigator.push({id: 'messages', 'message': 'You need internet connection to upload data to the Aeyrium service'});
+    }
   }
 
   goToSdFiles(){
-    this.props.navigator.push({id: 'sdlist'});
+    if(this.state.flashAirStatus != "Conected"){
+      this.props.navigator.push({id: 'messages', 'message': 'You must to connect with the Flashair Card Network'});
+    } else {
+      this.props.navigator.push({id: 'sdlist'});
+    }
   }
-  // uploadFile(){
-  //   let file = null;
-  //   let path = RNFS.DocumentDirectoryPath + '/' + this.state.filename;
-  //   this.setState(Object.assign({}, this.state, {uploading: true}));
-     
-  //   RNFS.readFile(path).then(function(data){
-  //     file = data; 
-  //     uploadFile(file)
-  //     .then((data)=>{
-  //       this.setState(Object.assign({}, this.state, {uploading: false}));
-  //     });   
-  //   });    
-  // }
 
   render() {
     let iconStatus = this.state.flashAirStatus !== 'Not Conected' ? require('./../imgs/wifi-icon-15-on.png') : require('./../imgs/wifi-icon-15.png');
@@ -95,12 +85,9 @@ export default class App extends Component {
     </TouchableHighlight>;
 
     if(this.state.flashAirStatus == 'Not Conected'){
-      downloadFilesBtn = null;
+      //downloadFilesBtn = null;
     }
 
-    // <TouchableHighlight onPress={this.openSettings.bind(this)}>
-    //             <Text style={styles.login}>Open Wifi Settings</Text>
-    //           </TouchableHighlight>
     return (
       <ScrollView contentContainerStyle={styles.bgview}>
         <View style={styles.view}>
@@ -121,7 +108,6 @@ export default class App extends Component {
                 <Text style={styles.login}>Check FlashAir SD</Text>
               </TouchableHighlight>
 
-              
               {downloadFilesBtn}
 
             </View>

@@ -3,6 +3,7 @@ import { Navigator } from 'react-native';
 import Wifi from './Wifi';
 import List from './List';
 import ListSd from './ListSd';
+import Messages from './Messages';
 
 export default class App extends Component {
   constructor(props){
@@ -14,6 +15,8 @@ export default class App extends Component {
     switch (route.id) {
       case 'wifi':
         return (<Wifi navigator={navigator} />);
+      case 'messages':
+        return (<Messages navigator={navigator} type={route.message} />);
       case 'list':
         return (<List navigator={navigator}/>);
       case 'sdlist':

@@ -73,6 +73,14 @@ export default function getStyles(){
       textAlign: 'center',
       marginTop: 15
     },
+    message: {
+      backgroundColor: 'white',
+      color: primary,
+      padding: 15,
+      textAlign: 'center',
+      marginTop: 15,
+      fontSize: 24
+    },
     loading: {
       opacity: 0.5
     },

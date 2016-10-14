@@ -52,14 +52,6 @@ export default class Tile extends Component {
   render() {
     const data = this.props.data;
 
-    let deleteBtn = <TouchableHighlight onPress={this.deleteFile.bind(this)}>
-      <Text style={styles.login}>Delete File</Text>
-    </TouchableHighlight>;
-
-    if(this.props.type == 'sd'){
-      deleteBtn = null;
-    }
-
     return (
       <View style={styles.viewrow}>
           <Image
