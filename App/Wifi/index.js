@@ -105,7 +105,7 @@ export default class App extends Component {
             <View style={styles.viewContainer}>
 
               <TouchableHighlight onPress={this.getSSID.bind(this)}>
-                <Text style={styles.login}>Check FlashAir SD</Text>
+                <Text style={styles.login}>Refresh Wifi Connection</Text>
               </TouchableHighlight>
 
               {downloadFilesBtn}
