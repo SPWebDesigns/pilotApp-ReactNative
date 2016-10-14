@@ -30,13 +30,14 @@ export function getSSID(){
     // }
   })
     .then(function(response) {
+      console.log(response);
       return response.text();
     })
     .then((responseJson) => {
       return responseJson;
     })
     .catch((error) => {
-      //console.error(error);
+      console.log(error);
   });
 }
 
@@ -73,17 +74,28 @@ export function fetchFile(filename){
   });
 }
 
-export function uploadFile(file){
+export function uploadFile(file, name){
+  console.log(file);
+
   var serializeJSON = function(file) {
     return Object.keys(file).map(function (keyName) {
       return encodeURIComponent(keyName) + '=' + encodeURIComponent(file[keyName])
+      //return encodeURIComponent(keyName) + '=' + file[keyName]
     }).join('&');
   }
 
+  var serialize = function(data) {
+    return Object.keys(data).map(function (keyName) {
+        return encodeURIComponent(keyName) + '=' + encodeURIComponent(data[keyName])
+    }).join('&');
+  };
+
   return fetch('http://danielgeslin.com/generic-file-uploader/upload.php', {
     method: 'POST',
-    body: serializeJSON({
-      data: file
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: serialize({
+      data: file.trim(),
+      name: name 
     })
   })
   .then(function(response) {
@@ -91,10 +103,12 @@ export function uploadFile(file){
     return response.json();
   })
   .then((responseJson) => {
+    console.log(responseJson);
     return responseJson;
   })
   .catch((error) => {
-    console.log(response);
+    console.log(error);
+    return error;
     //console.error(error);
-  });
+  })
 }

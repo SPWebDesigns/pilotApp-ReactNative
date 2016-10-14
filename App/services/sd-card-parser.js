@@ -31,7 +31,8 @@ export default class parseSdResults {
         let value = isNumber ? Number(tempArray[marker][index]) : tempArray[marker][index];
         obj[key] = value;
       }
-      this.fileArray.push(obj);
+      this.fileArray.push({name: obj});
+      console.log(this.fileArray);
       marker++;
     }
     return this.fileArray;

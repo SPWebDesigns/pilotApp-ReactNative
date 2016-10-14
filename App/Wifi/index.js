@@ -14,10 +14,14 @@ let sdParserInstance = new parseSdResults;
 export default class App extends Component {
   constructor(props){
     super(props);
+
+    console.log(RNFS.DocumentDirectoryPath);
+    
     this.state = {
       status: '',
       files: [],
-      'flashAirStatus': 'Not Conected',
+      //'flashAirStatus': 'Not Conected',
+      'flashAirStatus': 'Conected',
       'flashairSSID': null,
       'uploading': false,
       'filename': null
@@ -30,6 +34,7 @@ export default class App extends Component {
 
     // Get Local IP
     NetworkInfo.getIPAddress(ip => {
+      console.log(ip);
       if(ip != 'error'){
         this.setState(Object.assign({}, this.state, {status: 'Conected ' + ip}));
       } else {
@@ -102,6 +107,9 @@ export default class App extends Component {
       downloadFilesBtn = null;
     }
 
+    // <TouchableHighlight onPress={this.openSettings.bind(this)}>
+    //             <Text style={styles.login}>Open Wifi Settings</Text>
+    //           </TouchableHighlight>
     return (
       <ScrollView contentContainerStyle={styles.bgview}>
         <View style={styles.view}>
@@ -122,9 +130,7 @@ export default class App extends Component {
                 <Text style={styles.login}>Check FlashAir SD</Text>
               </TouchableHighlight>
 
-              <TouchableHighlight onPress={this.openSettings.bind(this)}>
-                <Text style={styles.login}>Open Wifi Settings</Text>
-              </TouchableHighlight>
+              
               {downloadFilesBtn}
 
             </View>

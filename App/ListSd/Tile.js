@@ -16,25 +16,16 @@ export default class Tile extends Component {
 
   uploadFile(){
     let file = null;
-    let name = this.props.data.name;
-    let path = RNFS.DocumentDirectoryPath + '/' + this.props.data.name;
+    let path = RNFS.DocumentDirectoryPath + '/' + this.props.data;
     this.setState(Object.assign({}, this.state, {uploading: true}));
      
-    RNFS.readFile(path)
-    .then((data) => {
-      file = data;
-      uploadFile(file, this.props.data.name)
+    RNFS.readFile(path).then(function(data){
+      file = data; 
+      uploadFile(file)
       .then((data)=>{
         this.setState(Object.assign({}, this.state, {uploading: false}));
       });   
-    })
-    .catch(function(err){
-      console.log(err);
     });    
-  }
-
-  deleteFile(){
-    return false;
   }
 
   render() {
@@ -62,6 +53,10 @@ export default class Tile extends Component {
           <View style={styles.centerView}>
             <TouchableHighlight onPress={this.uploadFile.bind(this)}>
               <Text style={styles.login}>Upload {data.name}</Text>
+            </TouchableHighlight>
+
+            <TouchableHighlight onPress={this.uploadFile.bind(this)}>
+              <Text style={styles.login}>Delete File</Text>
             </TouchableHighlight>
             
             {deleteBtn}

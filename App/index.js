@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Navigator } from 'react-native';
 import Wifi from './Wifi';
 import List from './List';
+import ListSd from './ListSd';
 
 export default class App extends Component {
   constructor(props){
@@ -14,9 +15,9 @@ export default class App extends Component {
       case 'wifi':
         return (<Wifi navigator={navigator} />);
       case 'list':
-        return (<List navigator={navigator} type={'local'}/>);
+        return (<List navigator={navigator}/>);
       case 'sdlist':
-        return (<List navigator={navigator} type={'sd'}/>);
+        return (<ListSd navigator={navigator}/>);
     }
   }
 
