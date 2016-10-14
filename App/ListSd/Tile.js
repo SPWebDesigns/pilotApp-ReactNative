@@ -43,7 +43,7 @@ export default class Tile extends Component {
       
       <View style={styles.viewrow}>
           <Image
-            style={styles.image}
+            style={styles.imageCloud}
             source={require('./../imgs/upload-icon-3.png')}
           />
           <View style={styles.centerView}>
