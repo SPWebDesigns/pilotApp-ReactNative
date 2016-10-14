@@ -26,6 +26,7 @@ export default class Tile extends Component {
       uploadFile(file, this.props.data.name)
       .then((data)=>{
         this.setState(Object.assign({}, this.state, {uploading: false}));
+        this.deleteFile(this.props.data.name);
       });   
     })
     .catch(function(err){
@@ -33,8 +34,19 @@ export default class Tile extends Component {
     });    
   }
 
-  deleteFile(){
-    return false;
+  deleteFile(filename){
+    console.log(filename);
+    var path = RNFS.DocumentDirectoryPath + '/' + filename;
+
+    RNFS.unlink(path)
+      .then(() => {
+        console.log('FILE DELETED');
+        this.props.navigator.push({id: 'wifi'});
+      })
+      // `unlink` will throw an error, if the item to unlink does not exist
+      .catch((err) => {
+        console.log(err.message);
+      });
   }
 
   render() {
@@ -58,8 +70,6 @@ export default class Tile extends Component {
             <TouchableHighlight onPress={this.uploadFile.bind(this)}>
               <Text style={styles.login}>Upload {data.name}</Text>
             </TouchableHighlight>
-            
-            {deleteBtn}
             
           </View>
         </View>

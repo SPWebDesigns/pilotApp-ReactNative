@@ -13,7 +13,7 @@ export default class App extends Component {
   }
   
   goHome(){
-    this.props.navigator.push({id: 'wifi', flashAirStatus: 'Conected'});
+    this.props.navigator.push({id: 'wifi'});
   }
 
   readDir(){
