@@ -15,7 +15,7 @@ import {
 
 import App from './App';
 
-class awesomeproject extends Component {
+class aeyrium extends Component {
   render() {
     return (
       <Navigator
@@ -81,4 +81,4 @@ const headerStyles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('awesomeproject', () => awesomeproject);
+AppRegistry.registerComponent('aeyrium', () => aeyrium);

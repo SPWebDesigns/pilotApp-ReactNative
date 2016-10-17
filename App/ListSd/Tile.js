@@ -48,7 +48,7 @@ export default class Tile extends Component {
           />
           <View style={styles.centerView}>
             <TouchableHighlight onPress={this.fetchFile.bind(this)}>
-              <Text style={styles.login}>Upload {data.name.filename}</Text>
+              <Text style={styles.login}>Download {data.name.filename}</Text>
             </TouchableHighlight>
 
           </View>

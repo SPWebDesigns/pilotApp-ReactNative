@@ -26,6 +26,8 @@
 		9D1BC4111D94515200385268 /* libRNFileDownload.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D61BDCC1D94377D00BB6922 /* libRNFileDownload.a */; };
 		9D1BC4121D94515500385268 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D61BDD41D944E8800BB6922 /* libRNFS.a */; };
 		9D66B4361DA6965E00A9782D /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D66B4351DA6965E00A9782D /* ExternalAccessory.framework */; };
+		9DDA186D1DB5241D00AF6C5A /* metadata.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DDA186B1DB5241D00AF6C5A /* metadata.json */; };
+		9DDA186F1DB529E100AF6C5A /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 9DDA186E1DB529E100AF6C5A /* main.jsbundle */; };
 		9DEC96CF1D9EAFC3007EEA83 /* libRNNetworkInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DEC96CE1D9EAF7F007EEA83 /* libRNNetworkInfo.a */; };
 		9DEC96D61D9EB6EE007EEA83 /* libReact Native Open Settings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DEC96D51D9EB6DD007EEA83 /* libReact Native Open Settings.a */; };
 		9DEC96DD1D9EC121007EEA83 /* libReactNativeAutoUpdater.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DEC96DC1D9EC11C007EEA83 /* libReactNativeAutoUpdater.a */; };
@@ -154,7 +156,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTActionSheet.xcodeproj; path = "../node_modules/react-native/Libraries/ActionSheetIOS/RCTActionSheet.xcodeproj"; sourceTree = "<group>"; };
 		00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTGeolocation.xcodeproj; path = "../node_modules/react-native/Libraries/Geolocation/RCTGeolocation.xcodeproj"; sourceTree = "<group>"; };
 		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
@@ -180,6 +181,8 @@
 		9D61BDCF1D944E8800BB6922 /* RNFS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFS.xcodeproj; path = "../node_modules/react-native-fs/RNFS.xcodeproj"; sourceTree = "<group>"; };
 		9D66B4351DA6965E00A9782D /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		9D66B4371DA6965E00A9782D /* AwesomeProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = AwesomeProject.entitlements; path = AwesomeProject/AwesomeProject.entitlements; sourceTree = "<group>"; };
+		9DDA186B1DB5241D00AF6C5A /* metadata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = metadata.json; sourceTree = "<group>"; };
+		9DDA186E1DB529E100AF6C5A /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		9DEC96BC1D9EAF7F007EEA83 /* RNNetworkInfo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNNetworkInfo.xcodeproj; path = "../node_modules/react-native-network-info/ios/RNNetworkInfo.xcodeproj"; sourceTree = "<group>"; };
 		9DEC96D01D9EB6DD007EEA83 /* React Native Open Settings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "React Native Open Settings.xcodeproj"; path = "../node_modules/react-native-open-settings/React Native Open Settings.xcodeproj"; sourceTree = "<group>"; };
 		9DEC96D71D9EC11C007EEA83 /* ReactNativeAutoUpdater.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeAutoUpdater.xcodeproj; path = "../node_modules/react-native-auto-updater/ios/ReactNativeAutoUpdater.xcodeproj"; sourceTree = "<group>"; };
@@ -297,13 +300,14 @@
 			isa = PBXGroup;
 			children = (
 				9D66B4371DA6965E00A9782D /* AwesomeProject.entitlements */,
-				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				9DDA186B1DB5241D00AF6C5A /* metadata.json */,
+				9DDA186E1DB529E100AF6C5A /* main.jsbundle */,
 			);
 			name = AwesomeProject;
 			sourceTree = "<group>";
@@ -712,7 +716,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				9DDA186D1DB5241D00AF6C5A /* metadata.json in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				9DDA186F1DB529E100AF6C5A /* main.jsbundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
