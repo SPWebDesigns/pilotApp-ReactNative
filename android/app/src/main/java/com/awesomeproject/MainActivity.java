@@ -18,7 +18,7 @@ import com.aerofs.reactnativeautoupdater.ReactNativeAutoUpdaterActivity;
 
 import com.rnfs.RNFSPackage;
 
-public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
+public class MainActivity extends ReactNativeAutoUpdaterActivity implements DefaultHardwareBackBtnHandler {
 
     private ReactRootView mReactRootView;
     private ReactInstanceManager mReactInstanceManager;
@@ -30,7 +30,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
     *  URL for the metadata of the update.
     * */
     @Override
-        protected String getUpdateMetadataUrl() {
+    protected String getUpdateMetadataUrl() {
         return "https://www.dropbox.com/s/mp8jwks69oesyks/android-update.json";
     }
 
@@ -39,7 +39,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
     * This metadata is used to compare the shipped JS code against the updates.
     * */
     @Override
-        protected String getMetadataAssetName() {
+    protected String getMetadataAssetName() {
         return "metadata.android.json";
     }
 
@@ -50,7 +50,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
     * */
     @Override
     protected String getHostnameForRelativeDownloadURLs() {
-    return "https://www.dropbox.com";
+        return "https://www.dropbox.com";
     }
 
     /**
@@ -105,7 +105,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
 
-        mReactRootView.startReactApplication(mReactInstanceManager, "awesomeproject", null);
+        mReactRootView.startReactApplication(mReactInstanceManager, "aeyrium", null);
 
         setContentView(mReactRootView);
     }

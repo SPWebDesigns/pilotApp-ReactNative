@@ -10,7 +10,7 @@ import ReactNativeAutoUpdater from 'react-native-auto-updater';
 export default class App extends Component {
   constructor(props){
     super(props);
-    ReactNativeAutoUpdater.jsCodeVersion();
+    //ReactNativeAutoUpdater.jsCodeVersion();
   }
 
   navigatorRenderScene(route, navigator) {
