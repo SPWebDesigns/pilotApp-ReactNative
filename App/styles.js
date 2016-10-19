@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native';
 
 export default function getStyles(){
-  //const primary = '#3399db';
-  const primary = '#5BFF1B';
+  const primary = '#3399db';
+  //const primary = '#5BFF1B';
   return StyleSheet.create({
     bgview: {
       flex: 1,

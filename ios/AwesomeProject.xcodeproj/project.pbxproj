@@ -26,6 +26,7 @@
 		9D1BC4111D94515200385268 /* libRNFileDownload.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D61BDCC1D94377D00BB6922 /* libRNFileDownload.a */; };
 		9D1BC4121D94515500385268 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D61BDD41D944E8800BB6922 /* libRNFS.a */; };
 		9D66B4361DA6965E00A9782D /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D66B4351DA6965E00A9782D /* ExternalAccessory.framework */; };
+		9DBFEE7C1DB7A7E8004AB5FA /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 9DBFEE7B1DB7A7E8004AB5FA /* assets */; };
 		9DDA186D1DB5241D00AF6C5A /* metadata.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DDA186B1DB5241D00AF6C5A /* metadata.json */; };
 		9DDA186F1DB529E100AF6C5A /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 9DDA186E1DB529E100AF6C5A /* main.jsbundle */; };
 		9DEC96CF1D9EAFC3007EEA83 /* libRNNetworkInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DEC96CE1D9EAF7F007EEA83 /* libRNNetworkInfo.a */; };
@@ -181,6 +182,7 @@
 		9D61BDCF1D944E8800BB6922 /* RNFS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFS.xcodeproj; path = "../node_modules/react-native-fs/RNFS.xcodeproj"; sourceTree = "<group>"; };
 		9D66B4351DA6965E00A9782D /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		9D66B4371DA6965E00A9782D /* AwesomeProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = AwesomeProject.entitlements; path = AwesomeProject/AwesomeProject.entitlements; sourceTree = "<group>"; };
+		9DBFEE7B1DB7A7E8004AB5FA /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		9DDA186B1DB5241D00AF6C5A /* metadata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = metadata.json; sourceTree = "<group>"; };
 		9DDA186E1DB529E100AF6C5A /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		9DEC96BC1D9EAF7F007EEA83 /* RNNetworkInfo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNNetworkInfo.xcodeproj; path = "../node_modules/react-native-network-info/ios/RNNetworkInfo.xcodeproj"; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 		13B07FAE1A68108700A75B9A /* AwesomeProject */ = {
 			isa = PBXGroup;
 			children = (
+				9DBFEE7B1DB7A7E8004AB5FA /* assets */,
 				9D66B4371DA6965E00A9782D /* AwesomeProject.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -487,6 +490,7 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = BHC5587M92;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
@@ -715,6 +719,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DBFEE7C1DB7A7E8004AB5FA /* assets in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				9DDA186D1DB5241D00AF6C5A /* metadata.json in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
@@ -786,6 +791,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = BHC5587M92;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -803,6 +809,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = BHC5587M92;
 				INFOPLIST_FILE = AwesomeProjectTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
