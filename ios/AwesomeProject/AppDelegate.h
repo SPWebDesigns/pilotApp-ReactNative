@@ -8,9 +8,8 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "ReactNativeAutoUpdater.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, ReactNativeAutoUpdaterDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
 

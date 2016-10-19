@@ -9,10 +9,13 @@
 
 #import "AppDelegate.h"
 
-#import "RCTBundleURLProvider.h"
 #import "RCTRootView.h"
+
 #import "ReactNativeAutoUpdater.h"
-#define JS_CODE_METADATA_URL @"/s/cz4etzf7mrj3ee0/update?raw=1"
+
+#define JS_CODE_METADATA_URL @"https://www.dropbox.com/s/3lwfjvru8mjcx4c/update.json?raw=1"
+//demo
+//#define JS_CODE_METADATA_URL @"https://www.dropbox.com/s/tc4jmkef48cmu87/update.json?raw=1"
 
 @interface AppDelegate() <ReactNativeAutoUpdaterDelegate>
 
@@ -20,22 +23,6 @@
 
 @implementation AppDelegate
 
-
-//  NSURL* latestJSCodeLocation = [updater latestJSCodeLocation];
-//
-//  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-//                                                      moduleName:@"AwesomeProject"
-//                                               initialProperties:nil
-//                                                   launchOptions:launchOptions];
-//  rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
-//
-//  self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//  UIViewController *rootViewController = [UIViewController new];
-//  rootViewController.view = rootView;
-//  self.window.rootViewController = rootViewController;
-//  [self.window makeKeyAndVisible];
-//  return YES;
-  
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   NSURL* defaultJSCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
@@ -55,7 +42,7 @@
                defaultMetadataFileLocation:defaultMetadataFileLocation ];
   
   [updater setHostnameForRelativeDownloadURLs:@"https://www.dropbox.com"];
-  //[updater checkUpdate];
+  [updater checkUpdate];
   
   NSURL* latestJSCodeLocation = [updater latestJSCodeLocation];
   
@@ -114,6 +101,5 @@
 - (void)ReactNativeAutoUpdater_updateDownloadFailed {
   NSLog(@"Update failed to download");
 }
-
 
 @end

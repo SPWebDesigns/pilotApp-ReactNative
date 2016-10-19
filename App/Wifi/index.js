@@ -106,7 +106,7 @@ export default class App extends Component {
           <View style={styles.view}>
             <View style={styles.viewContainer}>
               <TouchableHighlight onPress={this.getSSID.bind(this)}>
-                <Text style={styles.btnHome}>Refresh Wifi Connection!</Text>
+                <Text style={styles.btnHome}>Refresh Wifi Connection</Text>
               </TouchableHighlight>
 
               {downloadFilesBtn}

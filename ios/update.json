@@ -1,6 +1,6 @@
 {
-	"version": "1.0.1",
-	"minContainerVersion": "1.1",
+	"version": "1.1.4",
+	"minContainerVersion": "1.0",
 	"url": {
 		"url": "/s/cz4etzf7mrj3ee0/main.jsbundle?raw=1",
 		"isRelative": true

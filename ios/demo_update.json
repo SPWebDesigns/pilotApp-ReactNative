@@ -1,0 +1,9 @@
+{
+	"version": "1.4.2",
+	"minContainerVersion": "1.0",
+	"url": {
+		//https://www.dropbox.com/s/cqw4gcwopdqry3y/demo_main.jsbundle.txt?dl=0
+		"url": "/s/cqw4gcwopdqry3y/demo_main.jsbundle?raw=1",
+		"isRelative": true
+	}
+}
