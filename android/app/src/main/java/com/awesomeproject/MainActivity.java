@@ -31,7 +31,7 @@ public class MainActivity extends ReactNativeAutoUpdaterActivity implements Defa
     * */
     @Override
     protected String getUpdateMetadataUrl() {
-        return "https://www.dropbox.com/s/mp8jwks69oesyks/android-update.json";
+        return "https://www.dropbox.com/s/mp8jwks69oesyks/android-update.json?raw=1";
     }
 
     /**
