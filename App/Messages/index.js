@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Navigator, View, ListView, TouchableHighlight, Text, ScrollView } from 'react-native';
 import getStyles from '../styles';
 import RNFS from 'react-native-fs';
+import NavigationBar from 'react-native-navbar';
 
 const styles = getStyles();
 
@@ -16,20 +17,24 @@ export default class App extends Component {
 
   render() {
 
+    const leftButtonConfig = {
+      title: 'Back',
+      handler: () => this.goHome(),
+    };
+
+    const titleConfig = {
+      title: 'Aeyrium',
+    };
+
+
     return (
       <View style={styles.view}>
-        <View>
-          <Text style={styles.title}>AEYRIUM</Text>
-        </View>
         <ScrollView contentContainerStyle={styles.bgview}>
           <View style={styles.view}>
-
+            <NavigationBar
+            title={titleConfig}
+            leftButton={leftButtonConfig}/>
             <Text style={styles.message}>{this.props.type}</Text>
-
-            <TouchableHighlight onPress={this.goHome.bind(this)}>
-              <Text style={styles.login}>Back</Text>
-            </TouchableHighlight>   
-
           </View>
         </ScrollView>
       </View>

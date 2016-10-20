@@ -3,6 +3,7 @@ import { Navigator, View, ListView, Text, TouchableHighlight, Image, ScrollView 
 import getStyles from '../styles';
 import { fetchFiles, fetchFile, getSSID, uploadFile } from '../services/AsyncService';
 import parseSdResults from './../services/sd-card-parser';
+import NavigationBar from 'react-native-navbar';
 
 import NetworkInfo from 'react-native-network-info';
 import RNFS from 'react-native-fs';
@@ -88,10 +89,16 @@ export default class App extends Component {
       //downloadFilesBtn = null;
     }
 
+    const titleConfig = {
+      title: 'Aeyrium',
+    };
+
+
     return (
       <ScrollView contentContainerStyle={styles.bgview}>
         <View style={styles.view}>
-          <Text style={styles.title}>AEYRIUM</Text>
+          <NavigationBar
+            title={titleConfig}/>
           <View style={styles.viewrow}>
             <View style={styles.imageContainerWhite}>
               <Image

@@ -5,6 +5,7 @@ import Tile from './Tile';
 import getStyles from '../styles';
 import RNFS from 'react-native-fs';
 import parseSdResults from './../services/sd-card-parser';
+import NavigationBar from 'react-native-navbar';
 
 const styles = getStyles();
 let sdParserInstance = new parseSdResults;
@@ -40,6 +41,15 @@ export default class App extends Component {
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     const dataSource = ds.cloneWithRows(this.state.files);
 
+    const leftButtonConfig = {
+      title: 'Back',
+      handler: () => this.goHome(),
+    };
+
+    const titleConfig = {
+      title: 'Aeyrium',
+    };
+
     return (
       <View style={styles.view}>
         <View>
@@ -47,11 +57,9 @@ export default class App extends Component {
         </View>
         <ScrollView contentContainerStyle={styles.bgview}>
           <View style={styles.view}>
-            
-            <TouchableHighlight onPress={this.goHome.bind(this)}>
-              <Text style={styles.login}>Back</Text>
-            </TouchableHighlight>
-
+          <NavigationBar
+            title={titleConfig}
+            leftButton={leftButtonConfig}/>
             <ListView
               enableEmptySections={true}
               dataSource={dataSource}
