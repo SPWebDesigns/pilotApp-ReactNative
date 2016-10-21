@@ -95,20 +95,62 @@ export default class App extends Component {
 
 
     return (
+      // <ScrollView contentContainerStyle={styles.bgview}>
+      //   <View style={styles.view}>
+      //     <NavigationBar
+      //       title={titleConfig}/>
+      //     <View style={styles.view}>
+      //       <Text style={styles.message}>Flashair: {this.state.flashAirStatus}</Text>
+      //       <TouchableHighlight onPress={this.getSSID.bind(this)}>
+      //           <Text style={styles.login}>Refresh Wifi Connection</Text>
+      //         </TouchableHighlight>
+      //         {downloadFilesBtn}
+      //         <TouchableHighlight onPress={this.goToFileList.bind(this)}>
+      //           <Text style={styles.login}>Upload Files</Text>
+      //         </TouchableHighlight>
+      //     </View>     
+      //   </View>
+      // </ScrollView>
       <ScrollView contentContainerStyle={styles.bgview}>
         <View style={styles.view}>
           <NavigationBar
             title={titleConfig}/>
+          <View style={styles.viewrow}>
+            <View style={styles.imageContainerWhite}>
+              <Image
+                  style={styles.imageWifi}
+                  source={iconStatus}
+                />
+            </View>
+            <View style={styles.view}>
+              <Text style={styles.message}>Flashair: {this.state.flashAirStatus}</Text>
+            </View>
+          </View>
           <View style={styles.view}>
-            <Text style={styles.message}>Flashair: {this.state.flashAirStatus}</Text>
-            <TouchableHighlight onPress={this.getSSID.bind(this)}>
+            <View style={styles.viewContainer}>
+              <TouchableHighlight onPress={this.getSSID.bind(this)}>
                 <Text style={styles.login}>Refresh Wifi Connection</Text>
               </TouchableHighlight>
+
               {downloadFilesBtn}
-              <TouchableHighlight onPress={this.goToFileList.bind(this)}>
-                <Text style={styles.login}>Upload Files</Text>
-              </TouchableHighlight>
-          </View>     
+
+            </View>
+          </View>
+        
+        <View style={styles.viewrow}>
+          <View style={styles.imageContainer}>
+            <Image
+              style={styles.imageCloud}
+              source={require('./../imgs/upload-icon-3.png')}
+            />
+          </View>
+          <View style={styles.centerView}>
+            <TouchableHighlight onPress={this.goToFileList.bind(this)}>
+              <Text style={styles.login}>Upload Files</Text>
+            </TouchableHighlight>
+          </View>
+        </View>
+        
         </View>
       </ScrollView>
     );

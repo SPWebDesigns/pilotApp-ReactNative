@@ -28,12 +28,23 @@ export default class App extends Component {
 
 
     return (
+      // <View style={styles.view}>
+      //   <ScrollView contentContainerStyle={styles.bgview}>
+      //     <View style={styles.view}>
+      //       <NavigationBar
+      //       title={titleConfig}
+      //       leftButton={leftButtonConfig}/>
+      //       <Text style={styles.message}>{this.props.type}</Text>
+      //     </View>
+      //   </ScrollView>
+      // </View>
       <View style={styles.view}>
         <ScrollView contentContainerStyle={styles.bgview}>
-          <View style={styles.view}>
-            <NavigationBar
-            title={titleConfig}
-            leftButton={leftButtonConfig}/>
+          <View style={styles.view}>  
+            <NavigationBar style={styles.navigationBar}
+              title={{ title: 'AERYUM', tintColor: '#3399db', style: styles.navigationBarTitle  }}
+              leftButton={{ title: '  < BACK', handler: () => this.goHome(), }}
+              />
             <Text style={styles.message}>{this.props.type}</Text>
           </View>
         </ScrollView>

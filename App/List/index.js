@@ -54,23 +54,40 @@ export default class App extends Component {
     };
 
     return (
-      <View style={styles.view}>
+      <View style={styles.view}> 
         <ScrollView contentContainerStyle={styles.bgview}>
           <View style={styles.view}>
-          <NavigationBar
-            title={titleConfig}
-            leftButton={leftButtonConfig}/>
-            
+            <NavigationBar style={styles.navigationBar}
+            title={{ title: 'AERYUM', tintColor: '#3399db', style: styles.navigationBarTitle  }}
+            leftButton={{  title: '  < BACK', handler: () => this.goHome(),  }}
+            />
             <ListView
               enableEmptySections={true}
               dataSource={dataSource}
               renderRow={(rowData)=>
-                  <Tile navigator={this.props.navigator} data={rowData}></Tile>
+                  <Tile style={styles.updateFileName} navigator={this.props.navigator} data={rowData}></Tile>
               }
             />
           </View>
         </ScrollView>
       </View>
+      // <View style={styles.view}>
+      //   <ScrollView contentContainerStyle={styles.bgview}>
+      //     <View style={styles.view}>
+      //     <NavigationBar
+      //       title={titleConfig}
+      //       leftButton={leftButtonConfig}/>
+
+      //       <ListView
+      //         enableEmptySections={true}
+      //         dataSource={dataSource}
+      //         renderRow={(rowData)=>
+      //             <Tile navigator={this.props.navigator} data={rowData}></Tile>
+      //         }
+      //       />
+      //     </View>
+      //   </ScrollView>
+      // </View>
     );
   }
 }
