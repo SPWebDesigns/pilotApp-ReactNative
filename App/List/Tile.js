@@ -40,7 +40,7 @@ export default class Tile extends Component {
 
     RNFS.unlink(path)
       .then(() => {
-        console.log('FILE DELETED');
+        alert('File Uploaded');
         this.props.navigator.push({id: 'wifi'});
       })
       // `unlink` will throw an error, if the item to unlink does not exist

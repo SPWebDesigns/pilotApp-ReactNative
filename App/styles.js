@@ -75,6 +75,15 @@ export default function getStyles(){
       fontSize: 18
     },
     login: {
+      backgroundColor: 'white',
+      color: primary,
+      padding: 10,
+      textAlign: 'center',
+      marginTop: 15,
+      borderColor: primary,
+      borderWidth: 1
+    },
+    loginbkp: {
       backgroundColor: primary,
       color: '#FFF',
       padding: 15,
@@ -91,9 +100,11 @@ export default function getStyles(){
       marginTop: 15
     },
     message: {
-      backgroundColor: 'white',
-      color: primary,
-      padding: 15,
+      backgroundColor: primary,
+      borderColor: 'white',
+      borderWidth: 1,
+      color: 'white',
+      padding: 25,
       textAlign: 'center',
       marginTop: 15,
       fontSize: 24
