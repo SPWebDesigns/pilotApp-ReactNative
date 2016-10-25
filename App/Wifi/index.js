@@ -97,9 +97,9 @@ export default class App extends Component {
         <View style={styles.view}>
           <NavigationBar style={styles.navigationBar}
             title={{ title: 'AERYUM', tintColor: '#3399db', style: styles.navigationBarTitle  }} />
-            <View style={styles.view}>
-              <Text style={styles.subheader}>Connections Status:</Text>
-            </View>
+          <View style={styles.view}>
+            <Text style={styles.subheader}>Connections Status</Text>
+          </View>
           <View style={styles.viewrow}>
             <View style={styles.view}>
               <Text style={styles.message}>Flashair: {this.state.flashAirStatus}</Text>
@@ -111,7 +111,7 @@ export default class App extends Component {
             </View>
           </View>
           <View style={styles.view}>
-            <Text style={styles.subheader}>Posible Actions:</Text>
+            <Text style={styles.subheader}>Menu</Text>
           </View>
           <View style={styles.view}>
             <View style={styles.viewContainer}>

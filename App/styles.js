@@ -5,11 +5,11 @@ export default function getStyles(){
   //const primary = '#5BFF1B';
   return StyleSheet.create({
     subheader: {
-      color: primary,
-      textDecorationLine: "underline",
-      textDecorationStyle: "solid",
-      textDecorationColor: primary,
-      fontSize: 20
+      color: '#F4F4F4',
+      fontSize: 20,
+      textAlign: 'center',
+      backgroundColor: primary, //'#F4F4F4',
+      padding: 15
     },
     bgview: {
       flex: 1,
@@ -25,7 +25,7 @@ export default function getStyles(){
       backgroundColor: 'transparent',
     },
     view: {
-      flex: 1,
+      flex: 0,
       alignItems: 'stretch',
       backgroundColor: '#F4F4F4',
       padding: 0,
