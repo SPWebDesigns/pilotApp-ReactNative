@@ -6,6 +6,7 @@ export default function getStyles(){
   return StyleSheet.create({
     subheader: {
       color: '#F4F4F4',
+   
       fontSize: 20,
       textAlign: 'center',
       backgroundColor: primary, //'#F4F4F4',
@@ -25,7 +26,7 @@ export default function getStyles(){
       backgroundColor: 'transparent',
     },
     view: {
-      flex: 0,
+      flex: 1,
       alignItems: 'stretch',
       backgroundColor: '#F4F4F4',
       padding: 0,
