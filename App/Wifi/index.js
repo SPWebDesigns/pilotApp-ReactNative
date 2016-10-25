@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Navigator, View, ListView, Text, TouchableHighlight, Image, ScrollView } from 'react-native';
 import getStyles from '../styles';
-import { fetchFiles, fetchFile, getSSID, uploadFile } from '../services/AsyncService';
+import { fetchFiles, fetchFile, getSSID, uploadFile, checkInternetConnection } from '../services/AsyncService';
 import parseSdResults from './../services/sd-card-parser';
 import NavigationBar from 'react-native-navbar';
 
@@ -22,9 +22,11 @@ export default class App extends Component {
       files: [],
       'flashAirStatus': 'Not Conected',
       //'flashAirStatus': 'Conected',
+      'internetConnection': 'Not Conected',
       'flashairSSID': null,
       'uploading': false,
-      'filename': null
+      'filename': null,
+      'requests': 0
     };
 
     // Get SSID
@@ -36,26 +38,39 @@ export default class App extends Component {
     NetworkInfo.getIPAddress(ip => {
       console.log(ip);
       if(ip != 'error'){
-        this.setState(Object.assign({}, this.state, {status: 'Conected ' + ip}));
+        this.setState(Object.assign({}, this.state, {status: 'Connected ' + ip}));
       } else {
-        this.setState(Object.assign({}, this.state, {status: 'Not Conected'}));
+        this.setState(Object.assign({}, this.state, {status: 'Not Connected'}));
       }
     });
-  
+
   }
 
   componentDidMount(){
     this.getSSID();
+    this.checkInternetConnection();
+
+    setInterval(this.getSSID, 1500);
+    setInterval(this.checkInternetConnection, 1500);
+  }
+
+  checkInternetConnection(){
+    checkInternetConnection().then((data)=>{
+      if(data){
+        this.setState(Object.assign({}, this.state, {internetConnection: 'Connected'}));
+      } else {
+        this.setState(Object.assign({}, this.state, {internetConnection: 'Not Connected'}));
+      }
+    });
   }
 
   getSSID(){
     getSSID().then((data)=>{
-      console.log(data);
       this.setState(Object.assign({}, this.state, {flashairSSID: data}));
       if(data){
-        this.setState(Object.assign({}, this.state, {flashAirStatus: 'Conected'}));
+        this.setState(Object.assign({}, this.state, {flashAirStatus: 'Connected'}));
       } else {
-        this.setState(Object.assign({}, this.state, {flashAirStatus: 'Not Conected'}));
+        this.setState(Object.assign({}, this.state, {flashAirStatus: 'Not Connected'}));
       }
     });
   }
@@ -93,47 +108,24 @@ export default class App extends Component {
       title: 'Aeyrium',
     };
 
-
     return (
-      // <ScrollView contentContainerStyle={styles.bgview}>
-      //   <View style={styles.view}>
-      //     <NavigationBar
-      //       title={titleConfig}/>
-      //     <View style={styles.view}>
-      //       <Text style={styles.message}>Flashair: {this.state.flashAirStatus}</Text>
-      //       <TouchableHighlight onPress={this.getSSID.bind(this)}>
-      //           <Text style={styles.login}>Refresh Wifi Connection</Text>
-      //         </TouchableHighlight>
-      //         {downloadFilesBtn}
-      //         <TouchableHighlight onPress={this.goToFileList.bind(this)}>
-      //           <Text style={styles.login}>Upload Files</Text>
-      //         </TouchableHighlight>
-      //     </View>     
-      //   </View>
-      // </ScrollView>
       <ScrollView contentContainerStyle={styles.bgview}>
         <View style={styles.view}>
-          <NavigationBar
-            title={titleConfig}/>
+          <NavigationBar style={styles.navigationBar}
+            title={{ title: 'AERYUM', tintColor: '#3399db', style: styles.navigationBarTitle  }} />
           <View style={styles.viewrow}>
-            <View style={styles.imageContainerWhite}>
-              <Image
-                  style={styles.imageWifi}
-                  source={iconStatus}
-                />
-            </View>
             <View style={styles.view}>
               <Text style={styles.message}>Flashair: {this.state.flashAirStatus}</Text>
             </View>
           </View>
+          <View style={styles.viewrow}>
+            <View style={styles.view}>
+              <Text style={styles.message}>Internet: {this.state.internetConnection}</Text>
+            </View>
+          </View>
           <View style={styles.view}>
             <View style={styles.viewContainer}>
-              <TouchableHighlight onPress={this.getSSID.bind(this)}>
-                <Text style={styles.login}>Refresh Wifi Connection</Text>
-              </TouchableHighlight>
-
               {downloadFilesBtn}
-
             </View>
           </View>
         

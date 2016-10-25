@@ -27,7 +27,7 @@ export default class Tile extends Component {
     // write the file
     RNFS.writeFile(path, data, 'utf8')
       .then((success) => {
-        console.log('File Downloaded!');
+        alert('File Downloaded!');
       })
       .catch((err) => {
         console.log(err.message);

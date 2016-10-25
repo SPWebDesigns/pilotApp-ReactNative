@@ -115,7 +115,7 @@ export default function getStyles(){
       height: 70,
     },
     navigationBarTitle:{
-      fontSize: 24,
+      fontSize: 18,
       fontWeight: 'bold',
     },
     navigationBarLeft:{

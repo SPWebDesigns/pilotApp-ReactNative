@@ -20,6 +20,20 @@ export function checkFlashAirConnection (data) {
   });
 };
 
+export function checkInternetConnection(){
+  return fetch('http://www.google.com')
+  .then(function(response) {
+      console.log(response);
+      return response.text();
+    })
+    .then((responseJson) => {
+      return responseJson;
+    })
+    .catch((error) => {
+      console.log(error);
+  });
+}
+
 export function getSSID(){
   return fetch(API + getSSIDParams, {
     method: 'GET',
