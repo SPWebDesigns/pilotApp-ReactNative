@@ -97,6 +97,9 @@ export default class App extends Component {
         <View style={styles.view}>
           <NavigationBar style={styles.navigationBar}
             title={{ title: 'AERYUM', tintColor: '#3399db', style: styles.navigationBarTitle  }} />
+            <View style={styles.view}>
+              <Text style={styles.subheader}>Connections Status:</Text>
+            </View>
           <View style={styles.viewrow}>
             <View style={styles.view}>
               <Text style={styles.message}>Flashair: {this.state.flashAirStatus}</Text>
@@ -108,24 +111,20 @@ export default class App extends Component {
             </View>
           </View>
           <View style={styles.view}>
+            <Text style={styles.subheader}>Posible Actions:</Text>
+          </View>
+          <View style={styles.view}>
             <View style={styles.viewContainer}>
               {downloadFilesBtn}
             </View>
           </View>
-        
-        <View style={styles.viewrow}>
-          <View style={styles.imageContainer}>
-            <Image
-              style={styles.imageCloud}
-              source={require('./../imgs/upload-icon-3.png')}
-            />
+        <View style={styles.view}>
+            <View style={styles.viewContainer}>
+               <TouchableHighlight onPress={this.goToFileList.bind(this)}>
+                <Text style={styles.login}>Upload Files</Text>
+              </TouchableHighlight>
+            </View>
           </View>
-          <View style={styles.centerView}>
-            <TouchableHighlight onPress={this.goToFileList.bind(this)}>
-              <Text style={styles.login}>Upload Files</Text>
-            </TouchableHighlight>
-          </View>
-        </View>
         
         </View>
       </ScrollView>

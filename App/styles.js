@@ -4,6 +4,13 @@ export default function getStyles(){
   const primary = '#3399db';
   //const primary = '#5BFF1B';
   return StyleSheet.create({
+    subheader: {
+      color: primary,
+      textDecorationLine: "underline",
+      textDecorationStyle: "solid",
+      textDecorationColor: primary,
+      fontSize: 20
+    },
     bgview: {
       flex: 1,
       alignItems: 'stretch',
