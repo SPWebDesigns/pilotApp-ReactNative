@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight, Image } from 'react-native';
+import { View, Text, TouchableHighlight, Image, Alert } from 'react-native';
 import { uploadFile } from '../services/AsyncService';
 import getStyles from '../styles';
 import RNFS from 'react-native-fs';
@@ -40,7 +40,7 @@ export default class Tile extends Component {
 
     RNFS.unlink(path)
       .then(() => {
-        alert('File Uploaded');
+        Alert.alert(filename + ' was uploaded and deleted from your device');
         this.props.navigator.push({id: 'wifi'});
       })
       // `unlink` will throw an error, if the item to unlink does not exist

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight, Image } from 'react-native';
+import { View, Text, TouchableHighlight, Image, Alert } from 'react-native';
 import { fetchFile } from '../services/AsyncService';
 import getStyles from '../styles';
 import RNFS from 'react-native-fs';
@@ -27,7 +27,7 @@ export default class Tile extends Component {
     // write the file
     RNFS.writeFile(path, data, 'utf8')
       .then((success) => {
-        alert('File Downloaded!');
+        Alert.alert( filename + 'was downloaded!');
       })
       .catch((err) => {
         console.log(err.message);

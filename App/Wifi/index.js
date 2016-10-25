@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navigator, View, ListView, Text, TouchableHighlight, Image, ScrollView } from 'react-native';
+import { Navigator, View, ListView, Text, TouchableHighlight, Image, ScrollView, Alert } from 'react-native';
 import getStyles from '../styles';
 import { fetchFiles, fetchFile, getSSID, uploadFile, checkInternetConnection } from '../services/AsyncService';
 import parseSdResults from './../services/sd-card-parser';
@@ -32,6 +32,7 @@ export default class App extends Component {
     // Get SSID
     NetworkInfo.getSSID(ssid => {
       console.log(ssid);
+      Alert.alert('Hello');
     });
 
     // Get Local IP
@@ -79,13 +80,13 @@ export default class App extends Component {
     if(this.state.flashAirStatus != "Conected"){
       this.props.navigator.push({id: 'list'});
     } else {
-      this.props.navigator.push({id: 'messages', 'message': 'You need internet connection to upload data to the Aeyrium service'});
+      this.props.navigator.push({id: 'messages', 'message': 'You need internet connection to upload data to the Aeyrium service. Go to Settings > Wifi and connect to Internet.'});
     }
   }
 
   goToSdFiles(){
     if(this.state.flashAirStatus != "Conected"){
-      this.props.navigator.push({id: 'messages', 'message': 'You must to connect with the Flashair Card Network'});
+      this.props.navigator.push({id: 'messages', 'message': 'You must to connect with the Flashair Card Network. Go to Settings > Wifi and connect to the FlashAir SD Card.'});
     } else {
       this.props.navigator.push({id: 'sdlist'});
     }
