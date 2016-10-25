@@ -110,20 +110,26 @@ export default class App extends Component {
               <Text style={styles.message}>Internet: {this.state.internetConnection}</Text>
             </View>
           </View>
+  
           <View style={styles.view}>
             <Text style={styles.subheader}>Menu</Text>
+          </View>
+          <View style={styles.view}>
           </View>
           <View style={styles.view}>
             <View style={styles.viewContainer}>
               {downloadFilesBtn}
             </View>
           </View>
+        
         <View style={styles.view}>
             <View style={styles.viewContainer}>
                <TouchableHighlight onPress={this.goToFileList.bind(this)}>
                 <Text style={styles.login}>Upload Files</Text>
               </TouchableHighlight>
             </View>
+          </View>
+        <View style={styles.view}>
           </View>
         
         </View>

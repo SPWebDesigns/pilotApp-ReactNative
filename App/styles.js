@@ -6,7 +6,6 @@ export default function getStyles(){
   return StyleSheet.create({
     subheader: {
       color: '#F4F4F4',
-   
       fontSize: 20,
       textAlign: 'center',
       backgroundColor: primary, //'#F4F4F4',
