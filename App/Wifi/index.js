@@ -28,24 +28,7 @@ export default class App extends Component {
       'filename': null,
       'requests': 0
     };
-
-    // Get SSID
-    NetworkInfo.getSSID(ssid => {
-      console.log(ssid);
-      Alert.alert('Hello');
-    });
-
-    // Get Local IP
-    NetworkInfo.getIPAddress(ip => {
-      console.log(ip);
-      if(ip != 'error'){
-        this.setState(Object.assign({}, this.state, {status: 'Connected ' + ip}));
-      } else {
-        this.setState(Object.assign({}, this.state, {status: 'Not Connected'}));
-      }
-    });
-
-  }
+  };
 
   componentDidMount(){
     this.getSSID();
